@@ -31,4 +31,5 @@ Note: file paths in these scripts are currently hardcoded to a local Windows env
 Standalone Python scripts implementing and verifying numerical PDE solvers using the Method of Manufactured Solutions (MMS).
 
 FileDescriptionAdvection_problem.py1D Finite Element Method (FEM) solver for the steady and transient advection-diffusion equation: steady-state solve with Dirichlet BCs, transient integration via Backward Euler, a time-step convergence study, and an adaptive (graded) mesh refinement near a boundary layer.Convection_problem.pyHigh-order (4th-order accurate) finite-difference solver for the 1D heat/diffusion equation using RK4 time integration: includes a physical boundary-value case, an MMS-based spatial convergence study, an extension to spatially variable conductivity k(x), and a check of long-time convergence to steady state.
+
 Dependencies: Python 3, numpy, sympy, matplotlib.
