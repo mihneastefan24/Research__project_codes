@@ -1,6 +1,6 @@
 Numerical Methods for PDEs
 
-This directory contains Python implementations of numerical methods for solving and analysing partial differential equations.
+This directory contains Python implementations of numerical methods for solving and analysing partial differential equations, and the CFD and mesh generation in SU2 and Gmsh respectively.
 
 The projects focus on implementing numerical schemes from first principles and assessing their accuracy, convergence, stability, and mesh sensitivity.
 
@@ -21,6 +21,8 @@ Method of Manufactured Solutions (MMS)
 Convergence analysis
 
 Mesh refinement
+
+Flow around the cylinder.
 
 Files
 
