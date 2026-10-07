@@ -1,107 +1,33 @@
-Numerical Methods for PDEs
+# Numerical Methods for PDEs & Computational Fluid Dynamics
 
-This directory contains Python implementations of numerical methods for solving and analysing partial differential equations, and the CFD and mesh generation in SU2 and Gmsh respectively.
+This repository contains custom numerical PDE solvers implemented in Python from first principles (FEM, FDM, MMS), along with mesh generation scripts and CFD simulation cases using **Gmsh** and **SU2**.
 
-The projects focus on implementing numerical schemes from first principles and assessing their accuracy, convergence, stability, and mesh sensitivity.
+---
 
-Topics
+## 📌 Project Overview
 
-Finite Element Methods (FEM)
+The primary objective of this coursework and research project is to implement, verify, and analyze high-order numerical schemes for Partial Differential Equations (PDEs) and conduct CFD flow field analysis:
 
-Finite Difference Methods (FDM)
+1. **First-Principles Numerical Solvers (Python):** Custom implementations of Finite Element Methods (FEM) and Finite Difference Methods (FDM) to model 1D advection–diffusion, variable-conductivity heat equation dynamics, and implicit time integration.
+2. **Verification & Convergence Analysis:** Spatial/temporal error verification using the **Method of Manufactured Solutions (MMS)**, truncation error derivations, $L_2$ norm tracking, and CFL stability analysis.
+3. **Mesh Generation & CFD Dynamics (Gmsh & SU2):** Domain generation, boundary layer mesh grading, and external viscous flow simulation over cylinders at low Reynolds numbers ($Re = 20$).
 
-Advection–diffusion equations
+---
 
-Heat/diffusion equations
+## 📂 Repository Structure
 
-Time integration
-
-Method of Manufactured Solutions (MMS)
-
-Convergence analysis
-
-Mesh refinement
-
-Flow around the cylinder.
-
-Files
-
-Advection_problem.py
-
-Finite Element Method implementation for one-dimensional steady and transient advection–diffusion problems.
-
-The implementation includes:
-
-Finite element discretisation
-
-Global matrix assembly
-
-Dirichlet boundary conditions
-
-Steady-state solution
-
-Transient solution
-
-Backward Euler time integration
-
-Time-step convergence analysis
-
-Mesh refinement
-
-Graded mesh refinement near boundary layers
-
-Backwards_euler.py
-
-Implementation and analysis of the Backward Euler time-integration scheme for transient numerical problems.
-
-Convection_problem.py
-
-Finite-difference solution of the one-dimensional heat/diffusion equation.
-
-The implementation includes:
-
-Fourth-order spatial discretisation
-
-RK4 time integration
-
-Manufactured-solution verification
-
-Spatial convergence analysis
-
-Spatially varying thermal conductivity
-
-Long-time convergence towards the steady-state solution
-
-Verification & Analysis
-
-The projects use analytical or manufactured solutions where applicable to assess numerical accuracy and convergence.
-
-The analysis focuses on:
-
-Spatial convergence
-
-Temporal convergence
-
-Mesh sensitivity
-
-Numerical stability
-
-Comparison between numerical and reference solutions
-
-Requirements
-
-The Python implementations use standard scientific-computing packages including:
-
-Python 3
-
-NumPy
-
-SciPy
-
-SymPy
-
-Matplotlib
-
-Author
-
-Mihnea Stefan Martin, VKI, Politecnico di Milano
+```text
+.
+├── Advection_problem.py             # 1D FEM solver for steady/transient advection-diffusion with graded meshes
+├── Backwards_euler.py               # Implicit Backward Euler time-integration module and stability analysis
+├── Convection_problem.py            # 4th-order FDM heat solver with RK4, MMS verification & variable conductivity k(x)
+├── Create_geometry.m                # MATLAB script for parametric domain definitions and geometry creation
+├── Cylinder_re20.cfg                # SU2 configuration file for laminar cylinder flow simulation (Re = 20)
+├── NLAB3_Geometry.msh               # Baseline Gmsh mesh file for asymmetric channel/cylinder geometry
+├── NLAB3_Geometry_14000.msh         # Fine Gmsh mesh (~14,000 elements) for grid refinement studies
+├── NLAB3_Geometry_corse.msh         # Coarse Gmsh mesh for baseline grid testing
+├── NLAB3_Geometry_corse.su2         # Converted coarse SU2 format mesh file
+├── NLAB3_Geometry_medium.su2        # Converted medium-density SU2 format mesh file
+├── NLAB3_Geometry_refined.su2       # Converted refined SU2 mesh file
+├── cylinder_re20_BL.su2             # Boundary-layer resolved SU2 grid for cylinder flow analysis
+└── README.md                        # Repository documentation
